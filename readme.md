@@ -18,10 +18,9 @@ npm install
 
 npm run dev
 
+## The Plan
 
-The plan:
-
-
+```
                 +----------------------+
                 |      React UI        |
                 |  (Vite + React TS)   |
@@ -33,7 +32,6 @@ The plan:
                 |   ASP.NET Core API   |
                 |      (Ortho.Api)     |
                 +----------+-----------+
-                           |
                            |
         +------------------+------------------+
         |                                     |
@@ -62,7 +60,6 @@ The plan:
                  +-------------------+
 
                           |
-                          |
                           v
              +-------------------------------+
              | Notification Microservice     |
@@ -79,3 +76,4 @@ The plan:
                  |   (Optional)      |
                  |   RabbitMQ / etc  |
                  +-------------------+
+```
