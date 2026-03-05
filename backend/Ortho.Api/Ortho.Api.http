@@ -3,4 +3,17 @@
 GET {{Ortho.Api_HostAddress}}/weatherforecast/
 Accept: application/json
 
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "username": "michael",
+  "email": "michael@example.com",
+  "password": "Test1234!",
+  "firstName": "Michael",
+  "lastName": "Pettigrew",
+  "phoneNumber": "0400123456",
+  "team": "Backend"
+}
+
 ###
