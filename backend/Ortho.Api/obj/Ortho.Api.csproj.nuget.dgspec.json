@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Code\\Ortho\\backend\\Ortho.api\\Ortho.Api.csproj": {}
+    "C:\\Code\\Ortho\\backend\\Ortho.Api\\Ortho.Api.csproj": {}
   },
   "projects": {
-    "C:\\Code\\Ortho\\backend\\Ortho.api\\Ortho.Api.csproj": {
+    "C:\\Code\\Ortho\\backend\\Ortho.Api\\Ortho.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Code\\Ortho\\backend\\Ortho.api\\Ortho.Api.csproj",
+        "projectUniqueName": "C:\\Code\\Ortho\\backend\\Ortho.Api\\Ortho.Api.csproj",
         "projectName": "Ortho.Api",
-        "projectPath": "C:\\Code\\Ortho\\backend\\Ortho.api\\Ortho.Api.csproj",
+        "projectPath": "C:\\Code\\Ortho\\backend\\Ortho.Api\\Ortho.Api.csproj",
         "packagesPath": "C:\\Users\\Michael\\.nuget\\packages\\",
-        "outputPath": "C:\\Code\\Ortho\\backend\\Ortho.api\\obj\\",
+        "outputPath": "C:\\Code\\Ortho\\backend\\Ortho.Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
