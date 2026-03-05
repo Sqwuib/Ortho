@@ -1,29 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Code\\Ortho\\backend\\Ortho.Api\\Ortho.Api.csproj": {}
+    "C:\\code\\ortho\\backend\\ortho.api\\Ortho.Api.csproj": {}
   },
   "projects": {
-    "C:\\Code\\Ortho\\backend\\Ortho.Api\\Ortho.Api.csproj": {
+    "C:\\code\\ortho\\backend\\ortho.api\\Ortho.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Code\\Ortho\\backend\\Ortho.Api\\Ortho.Api.csproj",
+        "projectUniqueName": "C:\\code\\ortho\\backend\\ortho.api\\Ortho.Api.csproj",
         "projectName": "Ortho.Api",
-        "projectPath": "C:\\Code\\Ortho\\backend\\Ortho.Api\\Ortho.Api.csproj",
-        "packagesPath": "C:\\Users\\Michael\\.nuget\\packages\\",
-        "outputPath": "C:\\Code\\Ortho\\backend\\Ortho.Api\\obj\\",
+        "projectPath": "C:\\code\\ortho\\backend\\ortho.api\\Ortho.Api.csproj",
+        "packagesPath": "C:\\Users\\thesc\\.nuget\\packages\\",
+        "outputPath": "C:\\code\\ortho\\backend\\ortho.api\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Michael\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config"
+          "C:\\Users\\thesc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -47,6 +45,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.1.0, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[8.0.24, )"
@@ -91,7 +93,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.418/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
