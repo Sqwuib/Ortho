@@ -1,6 +1,6 @@
 Ortho is a enterprise-style task managment system.
 
-Currently in development by Michael Pettigrew
+Currently in very early development by Michael Pettigrew
 
 To Run:
 
