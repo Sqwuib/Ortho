@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\code\\ortho\\backend\\ortho.api\\Ortho.Api.csproj": {}
+    "C:\\Code\\Ortho\\backend\\Ortho.api\\Ortho.Api.csproj": {}
   },
   "projects": {
-    "C:\\code\\ortho\\backend\\ortho.api\\Ortho.Api.csproj": {
+    "C:\\Code\\Ortho\\backend\\Ortho.api\\Ortho.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\code\\ortho\\backend\\ortho.api\\Ortho.Api.csproj",
+        "projectUniqueName": "C:\\Code\\Ortho\\backend\\Ortho.api\\Ortho.Api.csproj",
         "projectName": "Ortho.Api",
-        "projectPath": "C:\\code\\ortho\\backend\\ortho.api\\Ortho.Api.csproj",
+        "projectPath": "C:\\Code\\Ortho\\backend\\Ortho.api\\Ortho.Api.csproj",
         "packagesPath": "C:\\Users\\thesc\\.nuget\\packages\\",
-        "outputPath": "C:\\code\\ortho\\backend\\ortho.api\\obj\\",
+        "outputPath": "C:\\Code\\Ortho\\backend\\Ortho.api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\thesc\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,7 +39,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "10.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -48,6 +49,10 @@
             "BCrypt.Net-Next": {
               "target": "Package",
               "version": "[4.1.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.0, )"
             },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
@@ -85,6 +90,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.25, 8.0.25]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[8.0.25, 8.0.25]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.25, 8.0.25]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[8.0.25, 8.0.25]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -93,7 +116,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

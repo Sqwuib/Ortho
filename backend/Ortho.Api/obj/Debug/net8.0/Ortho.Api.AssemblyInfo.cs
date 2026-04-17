@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Ortho.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+842a9c2eb79b2db84515458a8961698d28b99c1d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+43dac288d4fe1efcb0d936f102e9cbf2daa08701")]
 [assembly: System.Reflection.AssemblyProductAttribute("Ortho.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Ortho.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

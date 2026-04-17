@@ -2,6 +2,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Ortho.Api.Data;
 using Ortho.Api.Models;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Ortho.Api.Controllers;
 
@@ -10,20 +15,18 @@ namespace Ortho.Api.Controllers;
 public class AuthController : ControllerBase
 {
     private readonly AppDbContext _db;
+    private readonly IConfiguration _config;
 
-    public AuthController(AppDbContext db)
+    public AuthController(AppDbContext db, IConfiguration config)
     {
         _db = db;
+        _config = config;
     }
 
     // POST: /api/auth/register
     [HttpPost("register")]
     public async Task<IActionResult> Register(RegisterRequest request)
     {
-        // Basic validation
-        if (string.IsNullOrWhiteSpace(request.Username))
-            return BadRequest("Username is required.");
-
         if (string.IsNullOrWhiteSpace(request.Email))
             return BadRequest("Email is required.");
 
@@ -43,7 +46,6 @@ public class AuthController : ControllerBase
         // Create user
         var user = new User
         {
-            Username = request.Username.Trim(),
             Email = normalizedEmail,
             PasswordHash = hashedPassword,
             FirstName = request.FirstName ?? string.Empty,
@@ -59,7 +61,6 @@ public class AuthController : ControllerBase
         return Ok(new
         {
             user.Id,
-            user.Username,
             user.Email,
             user.FirstName,
             user.LastName,
@@ -67,11 +68,78 @@ public class AuthController : ControllerBase
             user.Team
         });
     }
+
+    // POST: /api/auth/login
+    [HttpPost("login")]
+    public async Task<IActionResult> Login(LoginRequest request)
+    {
+        if (string.IsNullOrWhiteSpace(request.Email) || string.IsNullOrWhiteSpace(request.Password))
+            return BadRequest("Invalid email or password.");
+        
+        string normalizedEmail = request.Email.Trim().ToLower();
+
+        // Find user by email
+        var user = await _db.Users.FirstOrDefaultAsync(u => u.Email.ToLower() == normalizedEmail);
+        
+        if (user == null)
+            return Unauthorized("Invalid email or password.");
+
+        // Verify password
+        bool passwordValid = BCrypt.Net.BCrypt.Verify(request.Password, user.PasswordHash);
+        if (!passwordValid)
+            return Unauthorized("Invalid email or password.");
+        
+        var keyString = _config["Jwt:Key"];
+        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(keyString!));
+        var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+        var claims = new[]
+        {
+            new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+            new Claim(ClaimTypes.Email, user.Email),          
+        };
+
+        var token = new JwtSecurityToken(
+            issuer: _config["Jwt:Issuer"],
+            audience: _config["Jwt:Audience"],
+            claims: claims,
+            expires: DateTime.UtcNow.AddHours(1),
+            signingCredentials: creds
+        );
+
+        var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
+
+        return Ok(new
+        {
+            token = tokenString
+        });
+
+    }
+    [Authorize]
+    [HttpGet("me")]
+    public async Task<IActionResult> Me()
+    {
+        var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)!.Value);
+
+        var user = await _db.Users.FindAsync(userId);
+
+        if (user == null)
+            return NotFound();
+
+        return Ok(new
+        {
+            user.Id,
+            user.Email,
+            user.FirstName,
+            user.LastName,
+            user.Team
+        });
+    }
+    
 }
 
 public class RegisterRequest
 {
-    public string Username { get; set; } = string.Empty;
     public string Email { get; set; } = string.Empty;
     public string Password { get; set; } = string.Empty;
 
@@ -79,4 +147,11 @@ public class RegisterRequest
     public string? LastName { get; set; }
     public string? PhoneNumber { get; set; }
     public string? Team { get; set; }
+}
+
+public class LoginRequest
+{
+    public string Email { get; set; } = string.Empty;
+    public string Password { get; set; } = string.Empty;
+
 }
