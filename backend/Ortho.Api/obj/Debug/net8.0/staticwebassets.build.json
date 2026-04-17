@@ -1,11 +1,1 @@
-{
-  "Version": 1,
-  "Hash": "1kIb6+FjE3khq2kX7ZVM8tWOkDnzcav84GRA+oR0LNA=",
-  "Source": "Ortho.Api",
-  "BasePath": "_content/Ortho.Api",
-  "Mode": "Default",
-  "ManifestType": "Build",
-  "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
-}
+{"Version":1,"Hash":"shMiEzW40nEttvbyed1ycJm/1NniO6e5u3eVVDpDYlg=","Source":"Ortho.Api","BasePath":"/","Mode":"Root","ManifestType":"Build","ReferencedProjectsConfiguration":[],"DiscoveryPatterns":[],"Assets":[],"Endpoints":[]}
